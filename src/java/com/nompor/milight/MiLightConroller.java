@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
-import java.rmi.ConnectException;
 
 /**
  *
@@ -56,7 +55,7 @@ public class MiLightConroller implements Closeable {
 		//開始されたかチェック
 		for ( int i = 0;i < RESPONSE_START_SESSION.length;i++ ) {
 			if ( RESPONSE_START_SESSION[i] != recv[i] ) {
-				throw new ConnectException("session start fail.");
+				throw new IOException("session start fail.");
 			}
 		}
 	}
