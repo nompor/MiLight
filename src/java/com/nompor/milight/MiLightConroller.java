@@ -5,9 +5,6 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 
-/**
- *
- */
 public class MiLightConroller implements Closeable {
 
 	public static byte ZONE_ALL = 0;
@@ -89,7 +86,7 @@ public class MiLightConroller implements Closeable {
 				, sessionId1 ,  sessionId2 , (byte)0x00 ,    iboxSeq , (byte)0x00
 				, cmd[0] , cmd[1] , cmd[2] , cmd[3] , cmd[4]
 				, cmd[5] , cmd[6] , cmd[7] , cmd[8] , cmd[9]
-				, cmd[10] , checkSum};
+				, (byte)0x00 , checkSum};
 
 		pack.setData(ctrlData, 0, ctrlData.length);
 		sock.send(pack);
@@ -134,7 +131,6 @@ public class MiLightConroller implements Closeable {
 		byte[] cmd = new byte[] {
 				  (byte)0x31 , (byte)0x00 , (byte)0x00 , (byte)0x08 , (byte)0x04
 				, (byte)0x01 , (byte)0x00 , (byte)0x00 , (byte)0x00 , zone
-				, (byte)0x00
 		};
 
 		send(cmd);
@@ -150,7 +146,6 @@ public class MiLightConroller implements Closeable {
 		byte[] cmd = new byte[] {
 				  (byte)0x31 , (byte)0x00 , (byte)0x00 , (byte)0x08 , (byte)0x04
 				, (byte)0x02 , (byte)0x00 , (byte)0x00 , (byte)0x00 , zone
-				, (byte)0x00
 		};
 		send(cmd);
 	}
@@ -168,7 +163,6 @@ public class MiLightConroller implements Closeable {
 		byte[] cmd = new byte[] {
 				  (byte)0x31 , (byte)0x00 , (byte)0x00 , (byte)0x08 , (byte)0x03
 				, bri , (byte)0x00 , (byte)0x00 , (byte)0x00 , zone
-				, (byte)0x00
 		};
 		send(cmd);
 	}
@@ -185,7 +179,6 @@ public class MiLightConroller implements Closeable {
 		byte[] cmd = new byte[] {
 				  (byte)0x31 , (byte)0x00 , (byte)0x00 , (byte)0x08 , (byte)0x02
 				, sat , (byte)0x00 , (byte)0x00 , (byte)0x00 , zone
-				, (byte)0x00
 		};
 		send(cmd);
 	}
@@ -202,7 +195,6 @@ public class MiLightConroller implements Closeable {
 		byte[] cmd = new byte[] {
 				  (byte)0x31 , (byte)0x00 , (byte)0x00 , (byte)0x08 , (byte)0x05
 				, tem , (byte)0x00 , (byte)0x00 , (byte)0x00 , zone
-				, (byte)0x00
 		};
 		send(cmd);
 	}
@@ -220,7 +212,6 @@ public class MiLightConroller implements Closeable {
 		byte[] cmd = new byte[] {
 				  (byte)0x31 , (byte)0x00 , (byte)0x00 , (byte)0x08 , (byte)0x01
 				, clr , clr , clr , clr , zone
-				, (byte)0x00
 		};
 		send(cmd);
 	}
@@ -236,7 +227,6 @@ public class MiLightConroller implements Closeable {
 		byte[] cmd = new byte[] {
 				  (byte)0x31 , (byte)0x00 , (byte)0x00 , (byte)0x08 , (byte)0x06
 				, mode , (byte)0x00 , (byte)0x00 , (byte)0x00 , zone
-				, (byte)0x00
 		};
 
 		send(cmd);
@@ -251,7 +241,7 @@ public class MiLightConroller implements Closeable {
 
 		byte[] cmd = new byte[] {
 				0x3D, 0x00, 0x00, 0x08, 0x00
-				, 0x00, 0x00, 0x00, 0x00, zone, 0x00
+				, 0x00, 0x00, 0x00, 0x00, zone
 		};
 
 		send(cmd);
@@ -266,7 +256,7 @@ public class MiLightConroller implements Closeable {
 
 		byte[] cmd = new byte[] {
 				0x3E, 0x00, 0x00, 0x08, 0x00
-				, 0x00, 0x00, 0x00, 0x00, zone, 0x00
+				, 0x00, 0x00, 0x00, 0x00, zone
 		};
 
 		send(cmd);
@@ -284,7 +274,6 @@ public class MiLightConroller implements Closeable {
 		byte[] cmd = new byte[] {
 				  (byte)0x31 , (byte)0x00 , (byte)0x00 , (byte)0x08 , (byte)0x04
 				, (byte)0x03 , (byte)0x00 , (byte)0x00 , (byte)0x00 , zone
-				, (byte)0x00
 		};
 		send(cmd);
 	}
@@ -301,7 +290,6 @@ public class MiLightConroller implements Closeable {
 		byte[] cmd = new byte[] {
 				  (byte)0x31 , (byte)0x00 , (byte)0x00 , (byte)0x08 , (byte)0x04
 				, (byte)0x04 , (byte)0x00 , (byte)0x00 , (byte)0x00 , zone
-				, (byte)0x00
 		};
 		send(cmd);
 	}
